@@ -116,14 +116,11 @@ namespace SuDoKu
 
 		public void fillBlockList()
 		{
-			blockList.ForEach
-				(currentValue => currentValue.fillList
-					(
-						fieldList.FindAll(field => currentValue  = field._block)
-					)
-
-
-				);
+			foreach(var block in blockList )
+			{
+				block.FieldViewModelList = fieldList.Where(field => Equals
+					(field._block, block)).ToList();
+			}
 		}
 	}
 }

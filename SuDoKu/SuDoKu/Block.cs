@@ -20,23 +20,5 @@ namespace SuDoKu
 		{
 			return FieldNumbers.All(num => num != i);
 		}
-
-		public void fillList(List<FieldVievModel> list)
-		{
-			FieldViewModelList = list;
-			
-			/*FieldViewModelList = new List<FieldVievModel>
-			{
-				field1,
-				field2,
-				field3,
-				field4,
-				field5,
-				field6,
-				field7,
-				field8,
-				field9
-			};*/
-		}
 	}
 }
