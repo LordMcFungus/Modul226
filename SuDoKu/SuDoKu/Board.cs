@@ -41,50 +41,50 @@ namespace SuDoKu
 
 				for (int row = 0; row<9;row++)
 				{
-					Block sway = null;
+					Block currentBlock = null;
 					if(row > 3)
 					{
 						if (column < 3 /*&& row < 3*/)
 						{
-							sway = block1;
+							currentBlock = block1;
 						}
 						else if (column < 6 /*&& (row < 3)*/)
 						{
-							sway = block2;
+							currentBlock = block2;
 						}
 						else if (column < 9)
 						{
-							sway = block3;
+							currentBlock = block3;
 						}
                     }
 					else if (row > 6)
 					{
 						if (column < 3 /*&& row < 3*/)
 						{
-							sway = block4;
+							currentBlock = block4;
 						}
 						else if (column < 6 /*&& (row < 3)*/)
 						{
-							sway = block5;
+							currentBlock = block5;
 						}
 						else if (column < 9)
 						{
-							sway = block6;
+							currentBlock = block6;
 						}
 					}
 					else if (row < 9)
 					{
 						if (column < 3 /*&& row < 3*/)
 						{
-							sway = block7;
+							currentBlock = block7;
 						}
 						else if (column < 6 /*&& (row < 3)*/)
 						{
-							sway = block8;
+							currentBlock = block8;
 						}
 						else if (column < 9)
 						{
-							sway = block9;
+							currentBlock = block9;
 						}
 					}
                     else
@@ -92,7 +92,7 @@ namespace SuDoKu
 						throw new NotImplementedException();
 					}
 
-					fieldList.Add(new FieldVievModel(0, sway, column, row));
+					fieldList.Add(new FieldVievModel(0, currentBlock, column, row));
 				}
 
 			}
@@ -107,11 +107,23 @@ namespace SuDoKu
                         fieldList.First(left => (currentValue.Row == left.Row - 1) && currentValue.Column == left.Column),
 						fieldList.First(right => (currentValue.Row == right.Row + 1) && currentValue.Column == right.Column),
 						fieldList.First(buttom => currentValue.Row == buttom.Row && (currentValue.Column == buttom.Column + 1))
-
+			
 					)
 			
 			
 			);
+		}
+
+		public void fillBlockList()
+		{
+			blockList.ForEach
+				(currentValue => currentValue.fillList
+					(
+						fieldList.FindAll(field => currentValue  = field._block)
+					)
+
+
+				);
 		}
 	}
 }

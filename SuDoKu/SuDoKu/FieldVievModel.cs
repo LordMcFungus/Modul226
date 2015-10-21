@@ -10,7 +10,7 @@ namespace SuDoKu
 		public int Column {	get; private set; }
 		public int Row {	get; private set; }
 	Dictionary<FieldSurrounders, FieldVievModel> surrounders;
-		private Block _block;
+		public Block _block;
 
 		public int Number { get; private set; }
 
