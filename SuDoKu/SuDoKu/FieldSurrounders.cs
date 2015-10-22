@@ -7,9 +7,9 @@ namespace SuDoKu
 {
 	public enum FieldSurrounders
 	{
-		top,
-		left,
-		right,
-		buttom,
+		Top,
+		Left,
+		Right,
+		Bottom,
 	}
 }

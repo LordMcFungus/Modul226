@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SuDoKu
 {
 	public class Block
 	{
-		public List<FieldVievModel> FieldViewModelList{get;set;}
-		public List<int> FieldNumbers
+		public List<FieldViewModel> FieldViewModelList { private get; set; }
+
+		private IEnumerable<int> FieldNumbers
 		{
-			get
-			{
-				return FieldViewModelList.Select(o => o.Number).Where(num => num > 0 && num < 10).ToList();
-			}
+			get { return FieldViewModelList.Select(o => o.Number).Where(num => num > 0 && num < 10).ToList(); }
 		}
-		public bool checkNumbers(int i)
+
+		/// <summary>
+		///     TODO TEXT
+		/// </summary>
+		/// <param name="i">TODO TEXT</param>
+		/// <returns></returns>
+		public bool CheckNumbers(int i)
 		{
 			return FieldNumbers.All(num => num != i);
 		}
