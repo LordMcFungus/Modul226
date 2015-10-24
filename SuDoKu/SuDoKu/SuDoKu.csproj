@@ -55,7 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Field.xaml">
+    <Page Include="Controles\BlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\Field.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,8 +72,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Block.cs" />
+    <Compile Include="Controles\BlockControl.xaml.cs">
+      <DependentUpon>BlockControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Board.cs" />
-    <Compile Include="Field.xaml.cs">
+    <Compile Include="Controles\Field.xaml.cs">
       <DependentUpon>Field.xaml</DependentUpon>
     </Compile>
     <Compile Include="FieldSurrounders.cs" />
@@ -80,6 +87,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

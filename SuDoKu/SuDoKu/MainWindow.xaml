@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuDoKu"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="650">
-    <Grid>
-        <Field/>
-    </Grid>
+        Title="MainWindow" Height="700" Width="650" d:DataContext="{d:DesignInstance local:Board}">
+	<Grid>
+		<Button Width="20" Height="20" />
+        <local:BlockControl DataContext="{Binding Block1}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block2}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block3}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block4}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block5}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block6}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block7}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block8}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+        <local:BlockControl DataContext="{Binding Block9}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"/>
+	</Grid>
 </Window>

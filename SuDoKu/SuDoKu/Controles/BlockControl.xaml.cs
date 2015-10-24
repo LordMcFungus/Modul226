@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace SuDoKu
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for BlockControl.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class BlockControl : UserControl
 	{
-		public MainWindow()
+		public BlockControl()
 		{
 			InitializeComponent();
-			DataContext = new Board();
 		}
 	}
 }

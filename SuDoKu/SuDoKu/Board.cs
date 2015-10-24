@@ -8,30 +8,38 @@ namespace SuDoKu
 	{
 		private List<Block> _blockList;
 		private List<FieldViewModel> _fieldList;
-
+		public Block Block1 { get; private set; }
+		public Block Block2 { get; private set; }
+		public Block Block3 { get; private set; }
+		public Block Block4 { get; private set; }
+		public Block Block5 { get; private set; }
+		public Block Block6 { get; private set; }
+		public Block Block7 { get; private set; }
+		public Block Block8 { get; private set; }
+		public Block Block9 { get; private set; }
 		private void ListCreator()
 		{
-			var block1 = new Block();
-			var block2 = new Block();
-			var block3 = new Block();
-			var block4 = new Block();
-			var block5 = new Block();
-			var block6 = new Block();
-			var block7 = new Block();
-			var block8 = new Block();
-			var block9 = new Block();
+			 Block1 = new Block(1,1);
+			 Block2 = new Block(1,2);
+			 Block3 = new Block(1,3);
+			 Block4 = new Block(2,1);
+			 Block5 = new Block(2,2);
+			 Block6 = new Block(2,3);
+			 Block7 = new Block(3,1);
+			 Block8 = new Block(3,2);
+			 Block9 = new Block(3,3);
 
 			_blockList = new List<Block>
 			{
-				block1,
-				block2,
-				block3,
-				block4,
-				block5,
-				block6,
-				block7,
-				block8,
-				block9
+				Block1,
+				Block2,
+				Block3,
+				Block4,
+				Block5,
+				Block6,
+				Block7,
+				Block8,
+				Block9
 			};
 
 			_fieldList = new List<FieldViewModel>(81);
@@ -44,45 +52,45 @@ namespace SuDoKu
 					{
 						if (column < 3)
 						{
-							currentBlock = block1;
+							currentBlock = Block1;
 						}
 						else if (column < 6)
 						{
-							currentBlock = block2;
+							currentBlock = Block2;
 						}
 						else if (column < 9)
 						{
-							currentBlock = block3;
+							currentBlock = Block3;
 						}
 					}
 					else if (row > 6)
 					{
 						if (column < 3)
 						{
-							currentBlock = block4;
+							currentBlock = Block4;
 						}
 						else if (column < 6)
 						{
-							currentBlock = block5;
+							currentBlock = Block5;
 						}
 						else if (column < 9)
 						{
-							currentBlock = block6;
+							currentBlock = Block6;
 						}
 					}
 					else if (row < 9)
 					{
 						if (column < 3)
 						{
-							currentBlock = block7;
+							currentBlock = Block7;
 						}
 						else if (column < 6)
 						{
-							currentBlock = block8;
+							currentBlock = Block8;
 						}
 						else if (column < 9)
 						{
-							currentBlock = block9;
+							currentBlock = Block9;
 						}
 					}
 					else
@@ -121,6 +129,15 @@ namespace SuDoKu
 				block.FieldViewModelList = _fieldList.Where(field => Equals
 					(field.Block, block)).ToList();
 			}
+			foreach (var block in _blockList)
+			{
+				
+			}
 		}
+		public Board()
+		{
+			ListCreator();
+		}
+
 	}
 }

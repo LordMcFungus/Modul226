@@ -37,21 +37,21 @@
   <Class Name="SuDoKu.Block">
     <Position X="6.25" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAABAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAABAAAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Block.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SuDoKu.Board">
     <Position X="2.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAgAAAAAAAAAAAAAAAAAABAAAAAAAAQAAAAAEA=</HashCode>
+      <HashCode>AAAAAAAAACAgAAAAAEAAAEAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="SuDoKu.FieldSurrounders">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
       <FileName>FieldSurrounders.cs</FileName>
     </TypeIdentifier>
   </Enum>

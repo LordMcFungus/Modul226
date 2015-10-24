@@ -1,14 +1,33 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
-	public class FieldViewModel
+	public class FieldViewModel : INotifyPropertyChanged
 	{
 		public readonly Block Block;
-		private Dictionary<FieldSurrounders, FieldViewModel> _surrounders;
+		private int _number;
+
+		public int BlockColumn
+		{
+			get
+			{
+				return Column - (Block.Column - 1)*3;
+			} 
+		}
+
+		public int BlockRow
+		{
+			get
+			{
+				return Row - (Block.Row - 1) * 3;
+			} 
+		}
 
 		/// <summary>
-		/// TODO TEXT
+		///     TODO TEXT
 		/// </summary>
 		/// <param name="defaultValue">TODO TEXT</param>
 		/// <param name="block">TODO TEXT</param>
@@ -22,20 +41,41 @@ namespace SuDoKu
 			Number = defaultValue;
 		}
 
+		public Dictionary<FieldSurrounders, FieldViewModel> Surrounders { get; private set; }
 		public int Column { get; private set; }
-		public int Row { get; private set; }
 
-		public int Number { get; private set; }
+		public int Number
+		{
+			get { return _number; }
+			set
+			{
+				if (!Equals(_number, value) && Block.CheckNumbers(value))
+				{
+					_number = value;
+					OnPropertyChanged(nameof(Number));
+				}
+			}
+		}
+
+		public int Row { get; private set; }
 
 		public void SetSurrounders(FieldViewModel top, FieldViewModel left, FieldViewModel right, FieldViewModel buttom)
 		{
-			_surrounders = new Dictionary<FieldSurrounders, FieldViewModel>
+			Surrounders = new Dictionary<FieldSurrounders, FieldViewModel>
 			{
 				{FieldSurrounders.Bottom, buttom},
 				{FieldSurrounders.Left, left},
 				{FieldSurrounders.Top, top},
 				{FieldSurrounders.Right, right}
 			};
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		[NotifyPropertyChangedInvocator]
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
