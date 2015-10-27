@@ -7,7 +7,10 @@
              mc:Ignorable="d"
              d:DesignHeight="20" d:DesignWidth="20"
              d:DataContext="{d:DesignInstance local:FieldViewModel}">
-	<Grid>
-		<TextBlock Width="20" Height="20" Text="{Binding Number}" />
+
+        <Grid>
+        <Border BorderBrush="Black" BorderThickness="0.5">
+            <TextBox Width="25" Height="25" Text="{Binding Number}" />
+		</Border>	
 	</Grid>
 </UserControl>

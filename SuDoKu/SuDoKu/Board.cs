@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
-	public class Board
+	public class Board :INotifyPropertyChanged
 	{
 		private List<Block> _blockList;
 		private List<FieldViewModel> _fieldList;
@@ -19,15 +22,15 @@ namespace SuDoKu
 		public Block Block9 { get; private set; }
 		private void ListCreator()
 		{
-			 Block1 = new Block(1,1);
-			 Block2 = new Block(1,2);
-			 Block3 = new Block(1,3);
-			 Block4 = new Block(2,1);
-			 Block5 = new Block(2,2);
-			 Block6 = new Block(2,3);
-			 Block7 = new Block(3,1);
-			 Block8 = new Block(3,2);
-			 Block9 = new Block(3,3);
+			 Block1 = new Block(0,0);
+			 Block2 = new Block(1,0);
+			 Block3 = new Block(2,0);
+			 Block4 = new Block(0,1);
+			 Block5 = new Block(1,1);
+			 Block6 = new Block(2,1);
+			 Block7 = new Block(0,2);
+			 Block8 = new Block(1,2);
+			 Block9 = new Block(2,2);
 
 			_blockList = new List<Block>
 			{
@@ -48,7 +51,7 @@ namespace SuDoKu
 				for (var row = 0; row < 9; row++)
 				{
 					Block currentBlock = null;
-					if (row > 3)
+					if (row < 3)
 					{
 						if (column < 3)
 						{
@@ -63,7 +66,7 @@ namespace SuDoKu
 							currentBlock = Block3;
 						}
 					}
-					else if (row > 6)
+					else if (row < 6)
 					{
 						if (column < 3)
 						{
@@ -128,16 +131,27 @@ namespace SuDoKu
 			{
 				block.FieldViewModelList = _fieldList.Where(field => Equals
 					(field.Block, block)).ToList();
+				OnPropertyChanged(nameof(block));
+
 			}
 			foreach (var block in _blockList)
 			{
-				
+				block.InitializePositionFields();
+				OnPropertyChanged(nameof(block));
 			}
 		}
 		public Board()
 		{
 			ListCreator();
+			FillBlockList();
 		}
 
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		[NotifyPropertyChangedInvocator]
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }

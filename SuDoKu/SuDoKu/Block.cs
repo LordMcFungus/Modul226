@@ -11,44 +11,17 @@ namespace SuDoKu
 			Row = row;
 		}
 
-		public List<FieldViewModel> FieldViewModelList { private get; set; } = new List<FieldViewModel>();
+		public List<FieldViewModel> FieldViewModelList { private get; set; }
 
-		public FieldViewModel FieldIHatePascal1
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 1 && field.BlockColumn == 1); }
-		}
-		public FieldViewModel FieldIHatePascal2
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 1 && field.BlockColumn == 2); }
-		}
-		public FieldViewModel FieldIHatePascal3
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 1 && field.BlockColumn == 3); }
-		}
-		public FieldViewModel FieldIHatePascal4
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 2 && field.BlockColumn == 1); }
-		}
-		public FieldViewModel FieldIHatePascal5
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 2 && field.BlockColumn == 2); }
-		}
-		public FieldViewModel FieldIHatePascal6
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 2 && field.BlockColumn == 3); }
-		}
-		public FieldViewModel FieldIHatePascal7
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 3 && field.BlockColumn == 1); }
-		}
-		public FieldViewModel FieldIHatePascal8
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 3 && field.BlockColumn == 2); }
-		}
-		public FieldViewModel FieldIHatePascal9
-		{
-			get { return FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 3 && field.BlockColumn == 3); }
-		}
+		public FieldViewModel PositionField1 { get; private set; }
+		public FieldViewModel PositionField2 { get; private set; }
+		public FieldViewModel PositionField3 { get; private set; }
+		public FieldViewModel PositionField4 { get; private set; }
+		public FieldViewModel PositionField5 { get; private set; }
+		public FieldViewModel PositionField6 { get; private set; }
+		public FieldViewModel PositionField7 { get; private set; }
+		public FieldViewModel PositionField8 { get; private set; }
+		public FieldViewModel PositionField9 { get; private set; }
 
 		public int Column { get; private set; }
 		public int Row { get; private set; }
@@ -68,9 +41,17 @@ namespace SuDoKu
 			return FieldNumbers.All(num => num != i);
 		}
 
-		public void setPascals()
+		public void InitializePositionFields()
 		{
-			
+			PositionField1 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 0 && field.BlockRow == 0);
+			PositionField2 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 1 && field.BlockRow == 0);
+			PositionField3 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 2 && field.BlockRow == 0);
+			PositionField4 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 0 && field.BlockRow == 1);
+			PositionField5 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 1 && field.BlockRow == 1);
+			PositionField6 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 2 && field.BlockRow == 1);
+			PositionField7 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 0 && field.BlockRow == 2);
+			PositionField8 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 1 && field.BlockRow == 2);
+			PositionField9 = FieldViewModelList.FirstOrDefault(field => field.BlockColumn == 2 && field.BlockRow == 2);
 		}
 	}
 }

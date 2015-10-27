@@ -5,26 +5,18 @@ using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
-	public class FieldViewModel : INotifyPropertyChanged
+	public sealed class FieldViewModel : INotifyPropertyChanged
 	{
 		public readonly Block Block;
 		private int _number;
-
+		public int Row { get; }
+		public int Column { get; }
 		public int BlockColumn
 		{
-			get
-			{
-				return Column - (Block.Column - 1)*3;
-			} 
+			get;
 		}
 
-		public int BlockRow
-		{
-			get
-			{
-				return Row - (Block.Row - 1) * 3;
-			} 
-		}
+		public int BlockRow { get; }
 
 		/// <summary>
 		///     TODO TEXT
@@ -39,10 +31,13 @@ namespace SuDoKu
 			Column = column;
 			Row = row;
 			Number = defaultValue;
+
+			BlockRow = Row - Block.Row * 3;
+			BlockColumn = Column - Block.Column * 3;
 		}
 
-		public Dictionary<FieldSurrounders, FieldViewModel> Surrounders { get; private set; }
-		public int Column { get; private set; }
+		private Dictionary<FieldSurrounders, FieldViewModel> Surrounders { get; set; }
+		
 
 		public int Number
 		{
@@ -57,7 +52,7 @@ namespace SuDoKu
 			}
 		}
 
-		public int Row { get; private set; }
+
 
 		public void SetSurrounders(FieldViewModel top, FieldViewModel left, FieldViewModel right, FieldViewModel buttom)
 		{
@@ -73,7 +68,7 @@ namespace SuDoKu
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		[NotifyPropertyChangedInvocator]
-		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		private void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
