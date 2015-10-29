@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="650" d:DataContext="{d:DesignInstance local:Board}">
     <Grid>
-
-        <Button Width="20" Height="20" Margin="399,349,223,300" />
-        <Grid Width="240" Height="240">
+        <Grid Width="280" Height="280">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

@@ -10,7 +10,7 @@
 
         <Grid>
         <Border BorderBrush="Black" BorderThickness="0.5">
-            <TextBox Width="25" Height="25" Text="{Binding Number}" />
+            <TextBox Width="30" Height="30" Text="{Binding Number}" />
 		</Border>	
 	</Grid>
 </UserControl>

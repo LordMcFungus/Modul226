@@ -44,7 +44,7 @@ namespace SuDoKu
 			get { return _number; }
 			set
 			{
-				if (!Equals(_number, value) && Block.CheckNumbers(value))
+				if (!Equals(_number, value) && Block.CheckNumbers(value) && value >= 0 && value <=9)
 				{
 					_number = value;
 					OnPropertyChanged(nameof(Number));
