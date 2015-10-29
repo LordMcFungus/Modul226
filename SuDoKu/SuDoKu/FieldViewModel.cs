@@ -56,7 +56,7 @@ namespace SuDoKu
 
 		private bool CheckNumbersInBoard(int i)
 		{
-			if (CheckNumberInBoard(1, FieldSurrounders.Top) && CheckNumberInBoard(1, FieldSurrounders.Right) && CheckNumberInBoard(1, FieldSurrounders.Left) && CheckNumberInBoard(1, FieldSurrounders.Bottom))
+			if (CheckNumberInBoard(i, FieldSurrounders.Top) && CheckNumberInBoard(i, FieldSurrounders.Right) && CheckNumberInBoard(i, FieldSurrounders.Left) && CheckNumberInBoard(i, FieldSurrounders.Bottom))
 			{
 				return true;
 			}
@@ -65,7 +65,7 @@ namespace SuDoKu
 
 		private bool CheckNumberInBoard(int i, FieldSurrounders direction)
 		{
-			if (this.Number == i)
+			if (Number == i)
 			{
 				return false;
 			}
@@ -75,48 +75,6 @@ namespace SuDoKu
 				return true;
 			}
 			return tmp.CheckNumberInBoard(i, direction);
-		}
-
-		private bool CheckRight(int i)
-		{
-			if (this.Number == i)
-			{
-				return false;
-			}
-			var tmp = Surrounders[FieldSurrounders.Right];
-			if (tmp == null)
-			{
-				return true;
-			}
-			return tmp.CheckRight(i);
-		}
-
-		private bool CheckLeft(int i)
-		{
-			if (this.Number == i)
-			{
-				return false;
-			}
-			var tmp = Surrounders[FieldSurrounders.Left];
-			if (tmp == null)
-			{
-				return true;
-			}
-			return tmp.CheckLeft(i);
-		}
-
-		private bool CheckTop(int i)
-		{
-			if (this.Number == i)
-			{
-				return false;
-			}
-			var tmp = Surrounders[FieldSurrounders.Top];
-			if (tmp == null)
-			{
-				return true;
-			}
-			return tmp.CheckTop(i);
 		}
 
 		public void SetSurrounders(FieldViewModel top, FieldViewModel left, FieldViewModel right, FieldViewModel buttom)

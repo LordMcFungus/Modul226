@@ -7,7 +7,7 @@ using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
-	public class Board :INotifyPropertyChanged
+	public sealed class Board :INotifyPropertyChanged
 	{
 		private List<Block> _blockList;
 		private List<FieldViewModel> _fieldList;
@@ -114,10 +114,10 @@ namespace SuDoKu
 			_fieldList.ForEach
 				(currentValue => currentValue.SetSurrounders
 					(
-						_fieldList.First(top => currentValue.Row == top.Row && (currentValue.Column == top.Column - 1)),
-						_fieldList.First(left => (currentValue.Row == left.Row - 1) && currentValue.Column == left.Column),
-						_fieldList.First(right => (currentValue.Row == right.Row + 1) && currentValue.Column == right.Column),
-						_fieldList.First(buttom => currentValue.Row == buttom.Row && (currentValue.Column == buttom.Column + 1))
+						_fieldList.FirstOrDefault(top => currentValue.Row == top.Row && (currentValue.Column == top.Column - 1)),
+						_fieldList.FirstOrDefault(left => (currentValue.Row == left.Row - 1) && currentValue.Column == left.Column),
+						_fieldList.FirstOrDefault(right => (currentValue.Row == right.Row + 1) && currentValue.Column == right.Column),
+						_fieldList.FirstOrDefault(buttom => currentValue.Row == buttom.Row && (currentValue.Column == buttom.Column + 1))
 					)
 				);
 		}
@@ -144,12 +144,13 @@ namespace SuDoKu
 		{
 			ListCreator();
 			FillBlockList();
+			FindSurrounders();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		[NotifyPropertyChangedInvocator]
-		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		private void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
