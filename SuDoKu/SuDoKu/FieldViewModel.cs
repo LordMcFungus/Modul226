@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO.Packaging;
 using System.Runtime.CompilerServices;
 using SuDoKu.Annotations;
 
@@ -44,7 +46,7 @@ namespace SuDoKu
 			get { return _number; }
 			set
 			{
-				if (!Equals(_number, value) && Block.CheckNumbers(value) && value >= 0 && value <=9)
+				if (!Equals(_number, value) && Block.CheckNumbers(value) && value >= 0 && value <=9 && CheckNumbersInBoard(value))
 				{
 					_number = value;
 					OnPropertyChanged(nameof(Number));
@@ -52,7 +54,70 @@ namespace SuDoKu
 			}
 		}
 
+		private bool CheckNumbersInBoard(int i)
+		{
+			if (CheckNumberInBoard(1, FieldSurrounders.Top) && CheckNumberInBoard(1, FieldSurrounders.Right) && CheckNumberInBoard(1, FieldSurrounders.Left) && CheckNumberInBoard(1, FieldSurrounders.Bottom))
+			{
+				return true;
+			}
+			return false;
+		}
 
+		private bool CheckNumberInBoard(int i, FieldSurrounders direction)
+		{
+			if (this.Number == i)
+			{
+				return false;
+			}
+			var tmp = Surrounders[direction];
+			if (tmp == null)
+			{
+				return true;
+			}
+			return tmp.CheckNumberInBoard(i, direction);
+		}
+
+		private bool CheckRight(int i)
+		{
+			if (this.Number == i)
+			{
+				return false;
+			}
+			var tmp = Surrounders[FieldSurrounders.Right];
+			if (tmp == null)
+			{
+				return true;
+			}
+			return tmp.CheckRight(i);
+		}
+
+		private bool CheckLeft(int i)
+		{
+			if (this.Number == i)
+			{
+				return false;
+			}
+			var tmp = Surrounders[FieldSurrounders.Left];
+			if (tmp == null)
+			{
+				return true;
+			}
+			return tmp.CheckLeft(i);
+		}
+
+		private bool CheckTop(int i)
+		{
+			if (this.Number == i)
+			{
+				return false;
+			}
+			var tmp = Surrounders[FieldSurrounders.Top];
+			if (tmp == null)
+			{
+				return true;
+			}
+			return tmp.CheckTop(i);
+		}
 
 		public void SetSurrounders(FieldViewModel top, FieldViewModel left, FieldViewModel right, FieldViewModel buttom)
 		{
