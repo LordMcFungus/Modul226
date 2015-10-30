@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuDoKu"
+        xmlns:controls="clr-namespace:SuDoKu.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="650" d:DataContext="{d:DesignInstance local:Board}">
+        Title="MainWindow" Height="350" Width="350" d:DataContext="{d:DesignInstance local:Board}" ResizeMode="NoResize">
     <Grid>
         <Grid Width="280" Height="280">
             <Grid.RowDefinitions>
@@ -18,15 +19,15 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <local:BlockControl DataContext="{Binding Block1}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block2}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block3}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block4}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block5}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block6}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block7}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block8}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
-            <local:BlockControl DataContext="{Binding Block9}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block1}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block2}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block3}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block4}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block5}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block6}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block7}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block8}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
+            <controls:BlockControl DataContext="{Binding Block9}" Grid.Row="{Binding Row}" Grid.Column="{Binding Column}"/>
 
         </Grid>
     </Grid>

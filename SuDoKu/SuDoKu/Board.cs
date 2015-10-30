@@ -7,12 +7,18 @@ using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
+	/// <summary>
+	/// Central Control of the Board 
+	/// </summary>
 	public sealed class Board : INotifyPropertyChanged
 	{
 		private List<Block> _blockList;
 
 		private List<IFieldViewModel> _fieldList;
 
+		/// <summary>
+		/// Construcor of the board, starts the necessary methods
+		/// </summary>
 		public Board()
 		{
 			ListCreator();
@@ -20,19 +26,52 @@ namespace SuDoKu
 			FindSurrounders();
 		}
 
+		/// <summary>
+		/// List With all Blocks
+		/// </summary>
 		public IEnumerable<Block> BlockList
 			=> _blockList ?? (_blockList = new List<Block> {Block1, Block2, Block3, Block4, Block5, Block6, Block7, Block8, Block9});
 
+		/// <summary>
+		/// First Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block1 { get; private set; }
+		/// <summary>
+		/// Second Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block2 { get; private set; }
+		/// <summary>
+		/// Third Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block3 { get; private set; }
+		/// <summary>
+		/// Fourth Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block4 { get; private set; }
+		/// <summary>
+		/// Fifth Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block5 { get; private set; }
+		/// <summary>
+		/// Sixth Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block6 { get; private set; }
+		/// <summary>
+		/// Seventh Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block7 { get; private set; }
+		/// <summary>
+		/// Eight Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block8 { get; private set; }
+		/// <summary>
+		/// Nineth Block in the Board goes from top left to buttom right
+		/// </summary>
 		public Block Block9 { get; private set; }
 
+		/// <summary>
+		/// Event that fires when a property has changed
+		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void ListCreator()
@@ -109,9 +148,9 @@ namespace SuDoKu
 		}
 
 		/// <summary>
-		///     TODO TEXT
+		/// Method, that finds the surrounders of eac field
 		/// </summary>
-		public void FindSurrounders()
+		private void FindSurrounders()
 		{
 			_fieldList.ForEach
 				(currentValue => currentValue.SetSurrounders
@@ -125,9 +164,9 @@ namespace SuDoKu
 		}
 
 		/// <summary>
-		///     TODO TEXT
+		/// fills the FieldViewModelList in each instance of a Block in the Blocklist
 		/// </summary>
-		public void FillBlockList()
+		private void FillBlockList()
 		{
 			foreach (var block in BlockList)
 			{

@@ -20,6 +20,9 @@ namespace SuDoKu
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		/// <summary>
+		/// Main Window of the Gui
+		/// </summary>
 		public MainWindow()
 		{
 			InitializeComponent();
