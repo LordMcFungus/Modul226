@@ -7,9 +7,10 @@ using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
-	public sealed class FieldViewModel : INotifyPropertyChanged
+	public sealed class FieldViewModel : IFieldViewModel
 	{
-		public readonly Block Block;
+		public Block Block { get; }
+		public bool IsEditable { get; set; } = true;
 		private int _number;
 		public int Row { get; }
 		public int Column { get; }
@@ -38,12 +39,28 @@ namespace SuDoKu
 			BlockColumn = Column - Block.Column * 3;
 		}
 
-		private Dictionary<FieldSurrounders, FieldViewModel> Surrounders { get; set; }
-		
+		private Dictionary<FieldSurrounders, IFieldViewModel> Surrounders { get; set; }
+
+		public string NumberString
+		{
+			get
+			{
+				return Number == 0 ? "" : Number.ToString();
+			}
+			set
+			{
+				int swag;
+                int.TryParse(value, out swag);
+				Number = swag;
+			}
+		}
 
 		public int Number
 		{
-			get { return _number; }
+			get
+			{
+				return _number;
+			}
 			set
 			{
 				if (!Equals(_number, value) && Block.CheckNumbers(value) && value >= 0 && value <=9 && CheckNumbersInBoard(value))
@@ -63,7 +80,7 @@ namespace SuDoKu
 			return false;
 		}
 
-		private bool CheckNumberInBoard(int i, FieldSurrounders direction)
+		public bool CheckNumberInBoard(int i, FieldSurrounders direction)
 		{
 			if (Number == i)
 			{
@@ -77,9 +94,16 @@ namespace SuDoKu
 			return tmp.CheckNumberInBoard(i, direction);
 		}
 
-		public void SetSurrounders(FieldViewModel top, FieldViewModel left, FieldViewModel right, FieldViewModel buttom)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="top"></param>
+		/// <param name="left"></param>
+		/// <param name="right"></param>
+		/// <param name="buttom"></param>
+		public void SetSurrounders(IFieldViewModel top, IFieldViewModel left, IFieldViewModel right, IFieldViewModel buttom)
 		{
-			Surrounders = new Dictionary<FieldSurrounders, FieldViewModel>
+			Surrounders = new Dictionary<FieldSurrounders, IFieldViewModel>
 			{
 				{FieldSurrounders.Bottom, buttom},
 				{FieldSurrounders.Left, left},

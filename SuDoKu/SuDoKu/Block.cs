@@ -3,25 +3,28 @@ using System.Linq;
 
 namespace SuDoKu
 {
+	
 	public class Block
 	{
-		public Block(int column, int row)
+		public int blockIndex;
+		public Block(int column, int row, int BlockIndex)
 		{
 			Column = column;
 			Row = row;
+			blockIndex = BlockIndex;
 		}
 
-		public List<FieldViewModel> FieldViewModelList { private get; set; }
+		public List<IFieldViewModel> FieldViewModelList { private get; set; }
 
-		public FieldViewModel PositionField1 { get; private set; }
-		public FieldViewModel PositionField2 { get; private set; }
-		public FieldViewModel PositionField3 { get; private set; }
-		public FieldViewModel PositionField4 { get; private set; }
-		public FieldViewModel PositionField5 { get; private set; }
-		public FieldViewModel PositionField6 { get; private set; }
-		public FieldViewModel PositionField7 { get; private set; }
-		public FieldViewModel PositionField8 { get; private set; }
-		public FieldViewModel PositionField9 { get; private set; }
+		public IFieldViewModel PositionField1 { get; private set; }
+		public IFieldViewModel PositionField2 { get; private set; }
+		public IFieldViewModel PositionField3 { get; private set; }
+		public IFieldViewModel PositionField4 { get; private set; }
+		public IFieldViewModel PositionField5 { get; private set; }
+		public IFieldViewModel PositionField6 { get; private set; }
+		public IFieldViewModel PositionField7 { get; private set; }
+		public IFieldViewModel PositionField8 { get; private set; }
+		public IFieldViewModel PositionField9 { get; private set; }
 
 		public int Column { get; private set; }
 		public int Row { get; private set; }

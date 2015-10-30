@@ -7,10 +7,22 @@ using SuDoKu.Annotations;
 
 namespace SuDoKu
 {
-	public sealed class Board :INotifyPropertyChanged
+	public sealed class Board : INotifyPropertyChanged
 	{
 		private List<Block> _blockList;
-		private List<FieldViewModel> _fieldList;
+
+		private List<IFieldViewModel> _fieldList;
+
+		public Board()
+		{
+			ListCreator();
+			FillBlockList();
+			FindSurrounders();
+		}
+
+		public IEnumerable<Block> BlockList
+			=> _blockList ?? (_blockList = new List<Block> {Block1, Block2, Block3, Block4, Block5, Block6, Block7, Block8, Block9});
+
 		public Block Block1 { get; private set; }
 		public Block Block2 { get; private set; }
 		public Block Block3 { get; private set; }
@@ -20,32 +32,22 @@ namespace SuDoKu
 		public Block Block7 { get; private set; }
 		public Block Block8 { get; private set; }
 		public Block Block9 { get; private set; }
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		private void ListCreator()
 		{
-			 Block1 = new Block(0,0);
-			 Block2 = new Block(1,0);
-			 Block3 = new Block(2,0);
-			 Block4 = new Block(0,1);
-			 Block5 = new Block(1,1);
-			 Block6 = new Block(2,1);
-			 Block7 = new Block(0,2);
-			 Block8 = new Block(1,2);
-			 Block9 = new Block(2,2);
+			Block1 = new Block(0, 0, 1);
+			Block2 = new Block(1, 0, 2);
+			Block3 = new Block(2, 0, 3);
+			Block4 = new Block(0, 1, 4);
+			Block5 = new Block(1, 1, 5);
+			Block6 = new Block(2, 1, 6);
+			Block7 = new Block(0, 2, 7);
+			Block8 = new Block(1, 2, 8);
+			Block9 = new Block(2, 2, 9);
 
-			_blockList = new List<Block>
-			{
-				Block1,
-				Block2,
-				Block3,
-				Block4,
-				Block5,
-				Block6,
-				Block7,
-				Block8,
-				Block9
-			};
-
-			_fieldList = new List<FieldViewModel>(81);
+			_fieldList = new List<IFieldViewModel>(81);
 			for (var column = 0; column < 9; column++)
 			{
 				for (var row = 0; row < 9; row++)
@@ -107,7 +109,7 @@ namespace SuDoKu
 		}
 
 		/// <summary>
-		/// TODO TEXT
+		///     TODO TEXT
 		/// </summary>
 		public void FindSurrounders()
 		{
@@ -123,31 +125,22 @@ namespace SuDoKu
 		}
 
 		/// <summary>
-		/// TODO TEXT
+		///     TODO TEXT
 		/// </summary>
 		public void FillBlockList()
 		{
-			foreach (var block in _blockList)
+			foreach (var block in BlockList)
 			{
 				block.FieldViewModelList = _fieldList.Where(field => Equals
 					(field.Block, block)).ToList();
 				OnPropertyChanged(nameof(block));
-
 			}
-			foreach (var block in _blockList)
+			foreach (var block in BlockList)
 			{
 				block.InitializePositionFields();
 				OnPropertyChanged(nameof(block));
 			}
 		}
-		public Board()
-		{
-			ListCreator();
-			FillBlockList();
-			FindSurrounders();
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
 
 		[NotifyPropertyChangedInvocator]
 		private void OnPropertyChanged([CallerMemberName] string propertyName = null)

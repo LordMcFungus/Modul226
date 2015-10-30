@@ -1,33 +1,42 @@
 ﻿<UserControl x:Class="SuDoKu.BlockControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:SuDoKu"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="60" d:DesignWidth="60"
-			  d:DataContext="{d:DesignInstance local:Block}">
-    <Border BorderBrush="Black" BorderThickness="1">
-	<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-			<local:Field DataContext="{Binding PositionField1}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField2}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField3}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField4}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField5}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField6}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField7}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField8}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
-			<local:Field DataContext="{Binding PositionField9}" Grid.Row="{Binding BlockRow}" Grid.Column="{Binding BlockColumn}"/>
+             d:DataContext="{d:DesignInstance local:Block}">
+	<Border BorderBrush="Black" BorderThickness="1">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<local:Field DataContext="{Binding PositionField1}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField2}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField3}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField4}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField5}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField6}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField7}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField8}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
+			<local:Field DataContext="{Binding PositionField9}" Grid.Row="{Binding BlockRow}"
+			             Grid.Column="{Binding BlockColumn}" IsEnabled="{Binding IsEditable}" />
 		</Grid>
 	</Border>
 </UserControl>
