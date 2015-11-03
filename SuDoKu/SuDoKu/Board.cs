@@ -148,7 +148,7 @@ namespace SuDoKu
 		}
 
 		/// <summary>
-		/// Method, that finds the surrounders of eac field
+		/// Method, that finds the surrounders of each field
 		/// </summary>
 		private void FindSurrounders()
 		{
@@ -172,10 +172,6 @@ namespace SuDoKu
 			{
 				block.FieldViewModelList = _fieldList.Where(field => Equals
 					(field.Block, block)).ToList();
-				OnPropertyChanged(nameof(block));
-			}
-			foreach (var block in BlockList)
-			{
 				block.InitializePositionFields();
 				OnPropertyChanged(nameof(block));
 			}

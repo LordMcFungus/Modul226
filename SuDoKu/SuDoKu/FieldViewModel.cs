@@ -69,7 +69,7 @@ namespace SuDoKu
 		{
 			get
 			{
-				return Number == 0 ? "" : Number.ToString();
+				return Number == 0 ? string.Empty : Number.ToString();
 			}
 			set
 			{
@@ -90,7 +90,7 @@ namespace SuDoKu
 			}
 			set
 			{
-				if (!Equals(_number, value) && Block.CheckNumbers(value) && value >= 0 && value <=9 && CheckNumbersInBoard(value))
+				if (!Equals(_number, value) && Block.CheckNumbers(value) && value > 0 && value <=9 && CheckNumbersInBoard(value))
 				{
 					_number = value;
 					OnPropertyChanged(nameof(Number));
