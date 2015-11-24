@@ -55,11 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Cars.cs" />
-    <Compile Include="Drivers.cs" />
-    <Compile Include="IVihecleBase.cs" />
-    <Compile Include="Car.cs" />
-    <Compile Include="CarBase.cs" />
+    <Compile Include="1\Auto.cs" />
+    <Compile Include="1\Autofabrik.cs" />
+    <Compile Include="7\BadAgent.cs" />
+    <Compile Include="7\GoodAgent.cs" />
+    <Compile Include="7\Weapon.cs" />
+    <Compile Include="2 5 6 10\Cars.cs" />
+    <Compile Include="2 5 6 10\Drivers.cs" />
+    <Compile Include="2 5 6 10\IVihecleBase.cs" />
+    <Compile Include="2 5 6 10\Car.cs" />
+    <Compile Include="2 5 6 10\CarBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,7 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasischTescht.cs" />
+    <Compile Include="2 5 6 10\BasischTescht.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -101,6 +106,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
