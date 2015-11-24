@@ -1,4 +1,4 @@
-﻿namespace SpaceInvaders._7
+﻿namespace BasciTest._7
 {
 	/// <summary>
 	/// Sinnvolles DTO

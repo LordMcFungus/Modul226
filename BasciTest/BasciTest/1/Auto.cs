@@ -1,4 +1,4 @@
-﻿namespace SpaceInvaders._1
+﻿namespace BasciTest._1
 {
 	class Auto
 	{
