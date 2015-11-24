@@ -21,6 +21,7 @@ namespace BasciTest
 			Car = cars.CarSet.First();
 			Car.driver = driver.drivers.Dequeue();
 			Car.Drive();
+			var a = new Random().Next(1, 100);
 		}
 	}
 }
