@@ -89,7 +89,7 @@ namespace SuDoKu
 		/// <returns></returns>
 		public bool CheckNumbers(int i)
 		{
-			return FieldNumbers.All(num => num != i);
+			return FieldNumbers.All(num => num != i || i == 0);
 		}
 
 		/// <summary>

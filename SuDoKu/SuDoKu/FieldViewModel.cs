@@ -119,6 +119,10 @@ namespace SuDoKu
 			{
 				return false;
 			}
+			if(i == 0)
+			{
+				return true;
+			}
 			var tmp = Surrounders[direction];
 			if (tmp == null)
 			{

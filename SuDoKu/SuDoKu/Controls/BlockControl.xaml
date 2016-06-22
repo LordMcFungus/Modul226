@@ -7,7 +7,7 @@
              xmlns:controls="clr-namespace:SuDoKu.Controls"
              mc:Ignorable="d"
              d:DesignHeight="60" d:DesignWidth="60"
-             d:DataContext="{d:DesignInstance local:Block}">
+             d:DataContext="{d:DesignInstance local:Block }">
 	<Border BorderBrush="Black" BorderThickness="1">
 		<Grid>
 			<Grid.RowDefinitions>
